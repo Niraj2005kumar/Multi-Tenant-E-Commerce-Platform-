@@ -1,89 +1,123 @@
-import type { Product, Order, User, Vendor } from '../types';
+export interface Product {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  category: string;
+  image: string;
+  status: string;
+}
+
+export interface Category {
+  id: string;
+  title: string;
+  description: string;
+}
+
+export interface StatCard {
+  title: string;
+  value: string;
+  delta: string;
+}
+
+export interface Order {
+  id: string;
+  customer: string;
+  total: string;
+  status: string;
+}
+
+export interface User {
+  id: string;
+  name: string;
+  role: string;
+  activity: string;
+}
+
+export interface VendorProduct {
+  name: string;
+  price: string;
+  status: string;
+}
+
+export interface Recommendation {
+  title: string;
+  description: string;
+}
+
+export interface SalesSeries {
+  label: string;
+  value: number;
+}
+
+export const categories: Category[] = [
+  { id: 'design', title: 'Design tools', description: 'UI kits, icons, templates, and product assets.' },
+  { id: 'growth', title: 'Growth tools', description: 'Analytics, funnels, conversion boosters.' },
+  { id: 'payments', title: 'Payments', description: 'Billing, subscriptions, and checkout flows.' },
+];
 
 export const products: Product[] = [
   {
-    id: 'prod-1',
-    name: 'Luxe Seller Dashboard',
-    category: 'Analytics',
-    price: 129.0,
-    rating: 4.9,
-    reviews: 142,
-    status: 'Active',
-    image: 'https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?auto=format&fit=crop&w=900&q=80',
-    vendor: 'Nexa Market',
-    inventory: 18,
-    description: 'A premium dashboard theme designed for modern vendors and customer analytics.',
+    id: 'pro-boost',
+    name: 'Pro Boost Suite',
+    description: 'Premium marketplace growth tools with embedded analytics.',
+    price: 79,
+    category: 'growth',
+    image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80',
+    status: 'Trending',
   },
   {
-    id: 'prod-2',
-    name: 'Pearl Commerce Kit',
-    category: 'UI Kit',
-    price: 89.0,
-    rating: 4.7,
-    reviews: 84,
-    status: 'Active',
-    image: 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=900&q=80',
-    vendor: 'Pulse Studio',
-    inventory: 31,
-    description: 'A clean SaaS commerce kit with modern product listing and checkout experiences.',
+    id: 'brand-kit',
+    name: 'Brand Kit Pro',
+    description: 'A beautiful design system for modern SaaS brands.',
+    price: 49,
+    category: 'design',
+    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80',
+    status: 'Popular',
   },
   {
-    id: 'prod-3',
-    name: 'Streamline Inventory',
-    category: 'Operations',
-    price: 64.0,
-    rating: 4.8,
-    reviews: 62,
-    status: 'Active',
-    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=80',
-    vendor: 'Flow Labs',
-    inventory: 12,
-    description: 'A product management suite built for professional vendor collaboration and order flow.',
+    id: 'payment-hub',
+    name: 'Payment Hub',
+    description: 'Fast checkout with recurring subscriptions and invoices.',
+    price: 99,
+    category: 'payments',
+    image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80',
+    status: 'New',
   },
-  {
-    id: 'prod-4',
-    name: 'ShopPulse Experience',
-    category: 'Marketing',
-    price: 49.0,
-    rating: 4.5,
-    reviews: 104,
-    status: 'Draft',
-    image: 'https://images.unsplash.com/photo-1542831371-d531d36971e6?auto=format&fit=crop&w=900&q=80',
-    vendor: 'Nexa Market',
-    inventory: 0,
-    description: 'Marketing and customer retention templates for SaaS eCommerce teams.',
-  },
+];
+
+export const stats: StatCard[] = [
+  { title: 'Monthly revenue', value: '$42.3K', delta: '+18%' },
+  { title: 'Active vendors', value: '128', delta: '+10%' },
+  { title: 'Orders this week', value: '1,254', delta: '+14%' },
 ];
 
 export const orders: Order[] = [
-  { id: 'ord-101', customer: 'Alicia Keys', total: '$420.00', status: 'Delivered', date: '2026-05-01' },
-  { id: 'ord-102', customer: 'Jordan Lee', total: '$128.00', status: 'Processing', date: '2026-05-03' },
-  { id: 'ord-103', customer: 'Mia Santos', total: '$259.00', status: 'Pending', date: '2026-05-05' },
-  { id: 'ord-104', customer: 'Evan Cole', total: '$76.00', status: 'Cancelled', date: '2026-05-06' },
+  { id: 'ORD-1251', customer: 'Eva Chen', total: '$420', status: 'Completed' },
+  { id: 'ORD-1247', customer: 'Mark Lee', total: '$210', status: 'Processing' },
+  { id: 'ORD-1239', customer: 'Lina Tran', total: '$89', status: 'Pending' },
 ];
 
 export const users: User[] = [
-  { id: 'user-1', name: 'Olivia James', email: 'olivia@saasmarket.com', role: 'customer' },
-  { id: 'user-2', name: 'Marcus Reed', email: 'marcus@saasmarket.com', role: 'vendor' },
-  { id: 'user-3', name: 'Sophia Hart', email: 'sophia@saasmarket.com', role: 'admin' },
+  { id: 'U-001', name: 'Luna Park', role: 'Admin', activity: '9 hours ago' },
+  { id: 'U-002', name: 'Camila Reed', role: 'Vendor', activity: '2 days ago' },
+  { id: 'U-003', name: 'Noah Kent', role: 'Customer', activity: '5 hours ago' },
 ];
 
-export const vendors: Vendor[] = [
-  { id: 'vendor-1', name: 'Nexa Market', company: 'Nexa Market Inc.', status: 'Active' },
-  { id: 'vendor-2', name: 'Pulse Studio', company: 'Pulse Studio Ltd.', status: 'Pending' },
-  { id: 'vendor-3', name: 'Flow Labs', company: 'Flow Labs LLC', status: 'Suspended' },
+export const vendorProducts: VendorProduct[] = [
+  { name: 'Marketplace Template', price: '$118', status: 'Live' },
+  { name: 'Checkout Widget', price: '$69', status: 'Draft' },
+  { name: 'Analytics Board', price: '$149', status: 'Live' },
 ];
 
-export const summaryCards = [
-  { title: 'Gross Revenue', value: '$42.8K', detail: '+14% vs last month' },
-  { title: 'Orders', value: '1.2K', detail: '+8% conversion' },
-  { title: 'Active Vendors', value: '68', detail: 'Stable growth' },
-  { title: 'Customer Retention', value: '88%', detail: 'Premium experience' },
+export const recommendations: Recommendation[] = [
+  { title: 'Launch newsletter', description: 'Build a smart onboarding sequence for new customers.' },
+  { title: 'Improve conversions', description: 'A/B test pricing and upgrade flows for sellers.' },
 ];
 
-export const analyticsStats = [
-  { label: 'Sales', value: '$84.4K' },
-  { label: 'Visits', value: '52.1K' },
-  { label: 'Conversion', value: '3.2%' },
-  { label: 'Refunds', value: '2.1%' },
+export const salesSeries: SalesSeries[] = [
+  { label: 'Week 1', value: 180 },
+  { label: 'Week 2', value: 232 },
+  { label: 'Week 3', value: 198 },
+  { label: 'Week 4', value: 275 },
 ];

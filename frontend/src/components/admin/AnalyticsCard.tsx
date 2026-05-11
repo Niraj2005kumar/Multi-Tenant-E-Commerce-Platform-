@@ -10,7 +10,7 @@ function AnalyticsCard({ title, value, hint }: { title: string; value: string; h
         </div>
         <Badge label="Top" variant="success" />
       </div>
-      <p className="mt-6 text-4xl font-semibold text-sky-400">{value}</p>
+      <p className="mt-6 text-4xl font-semibold text-slate-400">{value}</p>
     </div>
   );
 }

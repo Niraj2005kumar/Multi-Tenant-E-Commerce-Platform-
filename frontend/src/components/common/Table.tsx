@@ -1,30 +1,27 @@
-import type { ReactNode } from 'react';
-
-interface Column<T> {
-  title: string;
-  render: (item: T) => ReactNode;
-  className?: string;
+interface TableProps {
+  headers: string[];
+  rows: Array<string[]>;
 }
 
-function Table<T>({ columns, data }: { columns: Column<T>[]; data: T[] }) {
+function Table({ headers, rows }: TableProps) {
   return (
-    <div className="overflow-hidden rounded-[28px] border border-white/10 bg-slate-900/90 shadow-lg shadow-slate-950/20">
-      <table className="min-w-full divide-y divide-white/10 text-left text-sm text-slate-200">
-        <thead className="bg-slate-950/90 text-slate-400">
+    <div className="overflow-hidden rounded-[28px] border border-slate-800/70 bg-slate-950/90 shadow-2xl shadow-slate-950/25">
+      <table className="min-w-full border-collapse text-left text-sm text-slate-300">
+        <thead className="bg-slate-900/90 text-slate-400">
           <tr>
-            {columns.map((column) => (
-              <th key={column.title} className={`px-6 py-4 font-medium ${column.className ?? ''}`}>
-                {column.title}
+            {headers.map((header) => (
+              <th key={header} className="px-6 py-4 font-medium">
+                {header}
               </th>
             ))}
           </tr>
         </thead>
-        <tbody className="divide-y divide-white/10">
-          {data.map((item, itemIndex) => (
-            <tr key={itemIndex} className="hover:bg-white/5">
-              {columns.map((column) => (
-                <td key={column.title} className="px-6 py-4 align-top">
-                  {column.render(item)}
+        <tbody>
+          {rows.map((row, index) => (
+            <tr key={index} className="border-t border-slate-800/70 hover:bg-slate-900/80">
+              {row.map((cell, cellIndex) => (
+                <td key={cellIndex} className="px-6 py-4">
+                  {cell}
                 </td>
               ))}
             </tr>

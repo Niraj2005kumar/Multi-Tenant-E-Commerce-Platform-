@@ -4,25 +4,22 @@ import Button from '../../components/common/Button';
 import Input from '../../components/common/Input';
 import useToggle from '../../hooks/useToggle';
 
-function LoginPage() {
+function SignupPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [remember, setRemember] = useState(false);
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [agree, setAgree] = useState(false);
   const { state: showPassword, toggle: togglePassword } = useToggle(false);
 
   return (
     <div className="mx-auto max-w-5xl rounded-[44px] bg-slate-950/80 p-8 shadow-2xl shadow-slate-950/30 backdrop-blur-2xl sm:p-12">
       <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
         <div className="space-y-6">
-          <p className="text-sm uppercase tracking-[0.32em] text-sky-400">Member login</p>
-          <h1 className="text-4xl font-semibold text-white">Welcome back to the marketplace</h1>
+          <p className="text-sm uppercase tracking-[0.32em] text-sky-400">Create your account</p>
+          <h1 className="text-4xl font-semibold text-white">Start building the perfect SaaS storefront.</h1>
           <p className="max-w-xl text-slate-400">
-            Sign in to access dashboards, orders, and premium vendor resources with a beautiful, modern workspace.
+            Join the platform to manage products, orders, and analytics with a premium user experience.
           </p>
-          <div className="space-y-3">
-            <button className="btn-secondary w-full text-left">Continue with Google</button>
-            <button className="btn-secondary w-full text-left">Continue with GitHub</button>
-          </div>
         </div>
 
         <div className="glass-card rounded-[32px] p-8">
@@ -37,7 +34,7 @@ function LoginPage() {
                 <Input
                   value={password}
                   onChange={(event) => setPassword(event.target.value)}
-                  placeholder="Enter your password"
+                  placeholder="Create a password"
                   type={showPassword ? 'text' : 'password'}
                 />
                 <button
@@ -49,18 +46,23 @@ function LoginPage() {
                 </button>
               </div>
             </div>
-            <div className="flex items-center justify-between text-sm text-slate-400">
-              <label className="flex items-center gap-2">
-                <input type="checkbox" checked={remember} onChange={(event) => setRemember(event.target.checked)} className="h-4 w-4 rounded border-slate-700 bg-slate-900 text-sky-500" />
-                Remember me
-              </label>
-              <Link to="/auth/signup" className="text-sky-400 hover:text-sky-300">
-                Create account
-              </Link>
+            <div>
+              <label className="mb-2 block text-sm text-slate-300">Confirm Password</label>
+              <Input value={confirmPassword} onChange={(event) => setConfirmPassword(event.target.value)} placeholder="Confirm password" type="password" />
             </div>
+            <label className="flex items-center gap-3 text-sm text-slate-300">
+              <input type="checkbox" checked={agree} onChange={(event) => setAgree(event.target.checked)} className="h-4 w-4 rounded border-slate-700 bg-slate-900 text-sky-500" />
+              I agree to the terms and conditions
+            </label>
             <Button type="submit" variant="primary" className="w-full">
-              Sign in
+              Create account
             </Button>
+            <p className="text-center text-sm text-slate-400">
+              Already have an account?{' '}
+              <Link to="/auth/login" className="text-sky-400 hover:text-sky-300">
+                Sign in
+              </Link>
+            </p>
           </form>
         </div>
       </div>
@@ -68,4 +70,4 @@ function LoginPage() {
   );
 }
 
-export default LoginPage;
+export default SignupPage;
