@@ -4,9 +4,10 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "dev": "cd frontend && npm exec -- vite",
+    "start": "cd frontend && npm exec -- vite",
+    "build": "cd frontend && npm exec -- tsc -b && npm exec -- vite build",
+    "preview": "cd frontend && npm exec -- vite preview"
   },
   "dependencies": {
     "react": "^18.2.0",
