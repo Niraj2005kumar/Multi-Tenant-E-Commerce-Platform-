@@ -1,7 +1,7 @@
 ﻿# My Project
-# ZenithShop - Vendor First E-Commerce Marketplace
+# MultiShop - Vendor First E-Commerce Marketplace
 
-ZenithShop is a modern vendor-first e-commerce marketplace frontend project built using React, TypeScript, TanStack Router, and Tailwind CSS.
+MultiShop is a modern vendor-first e-commerce marketplace frontend project built using React, TypeScript, TanStack Router, and Tailwind CSS.
 
 In this platform, customers and vendors have separate authentication flows. Customers can register, login, browse shops, view products, add products to cart, and purchase items. Vendors can register their shop, login, access their vendor dashboard, add products, and manage their selling activity.
 
